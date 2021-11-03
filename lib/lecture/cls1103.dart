@@ -1,8 +1,16 @@
+import 'dart:math';
+
 void main() {
   introduceOneself();
 
   email(title: '제목', address: 'aaa@aaa.com', text: 'test');
   email(address: 'aaa@aaa.com', text: 'test');
+}
+
+double calcCircleArea(double radius) {
+  // return 3.14 * radius * radius;
+  // return 3.14 * pow(radius, 2);
+  return pi * pow(radius, 2);
 }
 
 double calcTriangleArea(double bottom, double height) {
@@ -35,3 +43,4 @@ void introduceOneself() {
 
   print('저는 $name입니다. $age살 이고요, 키는 ${height}Cm이고 $gender자입니다');
 }
+
