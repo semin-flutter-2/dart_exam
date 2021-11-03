@@ -1,8 +1,16 @@
 void main() {
   introduceOneself();
+
+  email('제목', 'aaa@aaa.com', 'test');
 }
 
-
+void email(String title, String address, String text) {
+  print('''
+$title 에 아래의 메일을 송신한다.
+제목 : $address
+본문 : $text
+  ''');
+}
 
 void introduceOneself() {
   String name = '오준석';
