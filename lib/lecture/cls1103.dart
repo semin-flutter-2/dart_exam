@@ -1,13 +1,20 @@
 void main() {
   introduceOneself();
 
-  email('제목', 'aaa@aaa.com', 'test');
+  email(title: '제목', address: 'aaa@aaa.com', text: 'test');
+  email(address: 'aaa@aaa.com', text: 'test');
 }
 
-void email(String title, String address, String text) {
+void email({String title, String address, String text}) {
+  String titleResult = title;
+
+  if (title == null) {
+    titleResult = '제목 없음';
+  }
+
   print('''
-$title 에 아래의 메일을 송신한다.
-제목 : $address
+$address 에 아래의 메일을 송신한다.
+제목 : $titleResult
 본문 : $text
   ''');
 }
