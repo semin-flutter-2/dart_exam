@@ -5,6 +5,14 @@ void main() {
   email(address: 'aaa@aaa.com', text: 'test');
 }
 
+double calcTriangleArea(double bottom, double height) {
+  double result = 0.0;
+
+  result = bottom * height / 2;
+
+  return result;
+}
+
 void email({String title, String address, String text}) {
   String titleResult = title;
 
