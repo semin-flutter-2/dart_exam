@@ -16,9 +16,10 @@ class Cleric {
   final int maxHp = 50;
   final int maxMp = 10;
 
-  Cleric({this.name, this.hp = 50, this.mp = 10});
+  Cleric({this.name, this.hp, this.mp});
 
   void selfAid() {
-
+    mp = mp - 5;
+    hp = maxHp;
   }
 }
