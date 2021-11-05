@@ -1,3 +1,4 @@
+import 'package:dart_exams/lecture/cleric.dart';
 import 'package:dart_exams/lecture/person.dart';
 
 void main() {
@@ -20,5 +21,6 @@ void main() {
 
   print(person.name); // 김준석
 
+  Cleric cleric = Cleric(name: 'aaa');
 }
 
