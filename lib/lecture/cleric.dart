@@ -4,9 +4,10 @@ void main() {
   // 타입 변수명 = 값
   // int i = 10;
   // Cleric타입 cleric이름으로 = 클래릭을 만들자
-  Cleric cleric = Cleric(name: '이름', hp: 100, mp: 50);
-  final cleric2 = Cleric(name: '이름');
-  final cleric3 = Cleric();
+  Cleric cleric = Cleric('이름', hp: 100, mp: 50);    // secondary constructor
+  final cleric2 = Cleric('이름');
+  final cleric3 = Cleric('우서');   // 기본 생정자 primary constructor
+  
 
   // 상수 const, final
   // final 런타임 상수 : 실행 중에 결정되는 메모리
@@ -20,20 +21,34 @@ void main() {
     sum += cleric.pray(1);
   }
   print('회복량 평균 : ${sum / count}');
+
+  print(Cleric.maxMp);
 }
 
+//// Top level ------------>
+
+
+
+//// Top level <------------
+
 class Cleric {
+  //// Field, 전역, Global, Property ------------>
+  // 전역 변수, Field, member 변수, Global 변수,
+
   // public
   String name;
   int hp;
   int mp;
-  final int maxHp = 50;
-  final int maxMp = 10;
+
+  static const int maxHp = 50;   // 4byte
+  static const int maxMp = 10;   // 4byte
 
   // private
   final Random _random = Random();
 
-  Cleric({this.name, this.hp, this.mp});
+  //// Field <------------
+
+  Cleric(this.name, {this.hp = maxHp, this.mp = maxMp});
 
   void selfAid() {
     mp = mp - 5 + _random.nextInt(5);

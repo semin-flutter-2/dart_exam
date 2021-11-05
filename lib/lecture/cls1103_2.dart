@@ -21,6 +21,6 @@ void main() {
 
   print(person.name); // 김준석
 
-  Cleric cleric = Cleric(name: 'aaa');
+  Cleric cleric = Cleric('aaa');
 }
 
