@@ -1,9 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:dart_exams/lecture/cls1123.dart';
+
 void main() {
   List<String> line = stdin.readLineSync(encoding: utf8).split(' ');
-  int a = int.parse(line[0]);
+  final int a = int.parse(line[0]);
   int b = int.parse(line[1]);
   int R = int.parse(line[2]);
 
@@ -19,7 +21,6 @@ void main() {
     Tree tree = Tree(x, y);
     trees.add(tree);
   }
-
 
   GongSa gongSa = GongSa(a, b, R);
 
@@ -46,7 +47,7 @@ class Park {
   List<bool> getSilents() {
     List<bool> result = [];
 
-    for (final tree in trees) {
+    for (final Tree tree in trees) {
       bool isSilent = gongSa.getSilent(tree);
       result.add(isSilent);
     }
@@ -56,20 +57,21 @@ class Park {
 }
 
 class GongSa {
-  int x;
-  int y;
-  int R;
+  final int x;
+  final int y;
+  final int R;
 
   GongSa(this.x, this.y, this.R);
 
   bool getSilent(Tree tree) {
-    return (tree.x - x) * (tree.x - x) + (tree.y - y) * (tree.y - y) >= R * R;
+    return isRanged(tree.x, x, tree.y, y, R);
+    // return (tree.x - x) * (tree.x - x) + (tree.y - y) * (tree.y - y) >= R * R;
   }
 }
 
 class Tree {
-  int x;
-  int y;
+  final int x;
+  final int y;
 
   Tree(this.x, this.y);
 

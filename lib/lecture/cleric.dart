@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:dart_exams/lecture/cls1123_2.dart';
+
 void main() {
   // 타입 변수명 = 값
   // int i = 10;
@@ -31,7 +33,7 @@ void main() {
 
 //// Top level <------------
 
-class Cleric {
+class Cleric extends Character {
   //// Field, 전역, Global, Property ------------>
   // 전역 변수, Field, member 변수, Global 변수,
 
@@ -39,6 +41,7 @@ class Cleric {
   String name;
   int hp;
   int mp;
+  Staff staff;
 
   static const int maxHp = 50;   // 4byte
   static const int maxMp = 10;   // 4byte
@@ -62,4 +65,13 @@ class Cleric {
     // 실제로 회복된 mp 양 리턴
     return mp - curMp;
   }
+}
+
+class Sword {
+  int power;
+}
+
+class Staff {
+  int power;
+  int magicPower;
 }
