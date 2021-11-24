@@ -24,11 +24,29 @@ abstract class Character {
   void attack(Dog dog);
 }
 
-class Dog {
-  int hp = 100;
+abstract class Animal {
+  void sound();
 }
 
-class Hero extends Character {
+abstract class HaveName {
+  String getName();
+}
+
+class Dog implements Animal, HaveName {
+  int hp = 100;
+
+  @override
+  void sound() {
+    print('멍멍');
+  }
+
+  @override
+  String getName() {
+    return '멍멍이';
+  }
+}
+
+class Hero extends Character implements Human, Bionic {
 
   Hero({String name, int hp}) : super(name: name, hp: hp);
 
@@ -38,6 +56,26 @@ class Hero extends Character {
     print('멋지게 공격!!');
     dog.hp -= 10;
     print('Hero 10만큼 데미지를 주었습니다.');
+  }
+
+  @override
+  void talk() {
+    // TODO: implement talk
+  }
+
+  @override
+  void breath() {
+    // TODO: implement breath
+  }
+
+  @override
+  void hear() {
+    // TODO: implement hear
+  }
+
+  @override
+  void run() {
+    // TODO: implement run
   }
 }
 
@@ -50,5 +88,78 @@ class Wizard extends Character {
   void attack(Dog dog) {
     dog.hp -= 5;
     print('Wizard 5만큼 데미지를 주었습니다.');
+  }
+}
+
+// 미구현 기능만 있는 완벽한 미구현체 : Interface
+abstract class Human {
+  void talk();
+  void hear();
+}
+
+abstract class Bionic {
+  void breath();
+  void run();
+}
+
+class Knight implements Human {
+
+  @override
+  void talk() {
+    print('hi');
+  }
+
+  @override
+  void hear() {
+    // TODO: implement hear
+  }
+}
+
+abstract class Car {
+  void drive();
+}
+
+abstract class NormalCar implements Car {
+  void changeGear(int gear);
+  void inputGas(int gas);
+}
+
+abstract class ElectronicCar implements Car {
+  void inputEnergy(int energy);
+}
+
+class Model3 extends Car {
+
+  @override
+  void drive() {
+    // TODO: implement drive
+  }
+
+  @override
+  void run() {
+    // TODO: implement run
+  }
+
+}
+
+class Sonata extends NormalCar {
+  @override
+  void changeGear(int gear) {
+
+  }
+
+  @override
+  void drive() {
+
+  }
+
+  @override
+  void run() {
+    // TODO: implement run
+  }
+
+  @override
+  void inputGas(int gas) {
+    // TODO: implement inputGas
   }
 }
