@@ -56,7 +56,7 @@ class Minion {
   int y;
 
   int hp;
-  int power;
+  final int power;
 
   Minion({this.x, this.y, this.hp, this.power});
 

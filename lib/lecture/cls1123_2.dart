@@ -16,16 +16,40 @@ void main() {
   superUltraHero.attack(dog);   //
 
   superHero.fly();
+
+  // 수정은 다른 애가 못하게 하자
+  hero.hp = -200;
+
+  // 읽기는 가능하게 하자
+  print('${hero.name} 가 공격을 했습니다. ${hero.name}의 에너지는 ${hero.hp}');
 }
 
 class Dog {
 }
 
 class Character {
-  String name;
-  int hp;
+  // 일반적으로 수정 금지
+  final String team = '어벤저스';
 
-  Character({this.name, this.hp});
+  // 내부적으로는 빈번하게 수정을 해야되지만 외부에는 수정 금지 getter
+  String _name;
+  String get name => _name;
+
+  int _hp;
+
+  int get hp => _hp;
+
+  // 외부에서의 수정 권한을 조정할 때. 내가 정한 기준 내에서만 수정이 가능 하도록 setter
+  set hp(int value) {
+    if (value < 0) {
+      _hp = 0;
+    } else {
+      _hp = value;
+    }
+  }
+
+  Character({String name, int hp}) : _name = name;
+
 }
 
 class Hero extends Character {
@@ -33,6 +57,7 @@ class Hero extends Character {
   Hero({String name, int hp}) : super(name: name, hp: hp);
 
   void attack(Dog dog) {
+    _name = '똥강아지';
     // 공격
     print('멋지게 공격!!');
   }
