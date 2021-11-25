@@ -1,11 +1,37 @@
 void main() {
+  Dog dog = Dog();
+
   Hero hero = Hero();
+  hero.attack(dog);
+  hero.breath();
+  hero.hear();
+  hero.run();
+  hero.talk();
+
   Wizard wizard = Wizard();
 
-  Dog dog = Dog();
 
   hero.attack(dog);
   wizard.attack(dog);
+
+
+  // 영웅은 캐릭터다
+  Character hero1 = Hero();
+  hero1.attack(dog);
+
+  Character wizard2 = Wizard();
+  Animal dog2 = Dog();
+  dog2.sound();
+
+  // 영웅은 휴먼이다
+  Human human = Hero();
+  human.talk();
+  human.hear();
+
+  // 여웅은 바이오닉이다
+  Bionic bionic = Hero();
+  bionic.run();
+  bionic.breath();
 
   // 신입2
   // Character superMan = Character(name: '슈퍼맨', hp: 100);
